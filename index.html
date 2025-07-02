@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Click the button to get a quote</h1>
+        <button onclick="getQuote()">Get Quote</button>
+        <p id="quoteDisplay"></p>
+    </div>
+
+    <script>
+        function getQuote() {
+            fetch('/quote')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('quoteDisplay').innerText = data.quote;
+            });
+        }
+    </script>
+</body>
+</html>
